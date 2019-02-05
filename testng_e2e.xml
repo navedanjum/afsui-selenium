@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="End2End">
+    <listeners>
+        <listener class-name="com.company.app.extentreport.ExtentReporterNG"/>
+    </listeners>
+    <test name="AFSTestCases" preserve-order="true" group-by-instances="true">
+        <classes>
+            <class name="com.company.app.testcases.ContactPageTests">
+                <methods>
+                    <include name="verifyUserLoginDashboardE2eTest" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
