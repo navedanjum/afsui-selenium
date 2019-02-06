@@ -1,5 +1,6 @@
 package com.company.app.testcases;
 
+import com.company.app.base.CommonWebElements;
 import com.company.app.base.TestBase;
 import com.company.app.pages.ContactPage;
 import com.company.app.pages.HomePage;
@@ -7,13 +8,13 @@ import com.company.app.util.TestUtil;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 /**
  * @author Ansari on 2/6/2019
  */
 public class ContactPageTests extends TestBase {
-
     HomePage homePage;
     ContactPage contactPage;
 
@@ -53,6 +54,7 @@ public class ContactPageTests extends TestBase {
     public void verifyJoinArvatoSectionContentTest(){
         String expectedString = "Join Arvato.\nCheck out our open positions";
         Assert.assertEquals(expectedString,contactPage.getTextContentFromJoinSection());
+        Assert.assertTrue(contactPage.IsGoTocareerPageBtnDisplayed());
     }
 
 
@@ -75,7 +77,7 @@ public class ContactPageTests extends TestBase {
         Assert.assertEquals(expectedHrEmail, contactPage.getHrEmail());
     }
 
-    @Test(priority=6)
+    //@Test(priority=6)
     public void verifyPhoneNumberTest(){
         String expectedGeneralPhone = "+372 51 917 882";
         String expectedHrPhone = "+372 53 053 405";
@@ -84,6 +86,25 @@ public class ContactPageTests extends TestBase {
         Assert.assertEquals(expectedHrPhone, contactPage.getHrPhone());
     }
 
+    //Data-driven testing - positive test with valid data
+    @DataProvider(name = "contactTestData")
+    public Object[][] getContactsTestData(){
+        Object data[][] = TestUtil.getTestData(sheetName);
+        return data;
+    }
+
+
+    //@Test(priority=7)
+    public void verifyContactUsLabelTest(){
+        Assert.assertTrue(contactPage.isContactUsLabelDisplayed());
+    }
+
+    @Test(priority=10, dataProvider="contactTestData")
+    public void validateContactFormSubmissionSuccessTest(String name, String email, String phone, String message){
+        contactPage.submitFormData(name, email, phone, message);
+        String successMsg = "Thank you for your message. It has been sent.";
+        Assert.assertEquals(successMsg, contactPage.getSubmissionResponseMsg());
+    }
 
     @AfterMethod
     public void tearDown(){

@@ -67,10 +67,17 @@ public class ContactPage extends CommonWebElements {
     @FindBy(xpath = "//div[@data-id='898aa72']/div/div/a[contains(@href,'career')]")
     WebElement navigateToCareerBtn;
 
+    @FindBy(css = ".wpcf7-response-output")
+    WebElement formSubmissionResponseMsgArea;
+
 
     public ContactPage() {
 
         PageFactory.initElements(driver, this);
+    }
+
+    public boolean isContactUsLabelDisplayed(){
+        return contactUsLabel.isDisplayed();
     }
 
     public boolean isLocationLabelDisplayed(){
@@ -132,6 +139,17 @@ public class ContactPage extends CommonWebElements {
         driver.switchTo().defaultContent();
     }
 
+    public void submitFormData(String name, String email, String phone, String msg){
+        nameInput.sendKeys(name);
+        emailInput.sendKeys(email);
+        phoneInput.sendKeys(phone);
+        msgArea.sendKeys(msg);
+        submitBtn.click();
+    }
 
+    public String getSubmissionResponseMsg(){
+        wait.until(ExpectedConditions.visibilityOf(formSubmissionResponseMsgArea));
+        return formSubmissionResponseMsgArea.getText();
+    }
 
 }

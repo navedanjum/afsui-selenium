@@ -23,7 +23,7 @@ public class TestUtil extends TestBase {
     public static long IMPLICIT_WAIT = 10;
     public static long EXPLICIT_WAIT = 20;
 
-    public static String TESTDATA_SHEET_PATH = "src/main/java/com/company/app/testdata/data.xlsx";
+    public static String TESTDATA_SHEET_PATH = "src/main/java/com/company/app/testdata/afsdata.xlsx";
 
     static Workbook book;
     static Sheet sheet;
@@ -53,6 +53,7 @@ public class TestUtil extends TestBase {
         }
         return data;
     }
+
 
     public static void captureScreenshot() throws IOException {
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
