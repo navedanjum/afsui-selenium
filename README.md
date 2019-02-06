@@ -60,5 +60,6 @@ Framework and Web test ran successfully through both IDE intelliJ IDEA and MVN c
 
 ## Contact information
 1. For queries contact author Navedanjum Ansari    
-                              navedanjum.ansari@gmail.com/ansari@ut.ee/naansa@ttu.ee
-							  website: xpressionworks.com
+                              navedanjum.ansari@gmail.com
+							  ansari@ut.ee/naansa@ttu.ee
+							  Personal website: xpressionworks.com

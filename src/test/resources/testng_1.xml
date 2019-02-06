@@ -6,7 +6,7 @@
     </listeners>
     <test name="AFSTestCases" preserve-order="true" group-by-instances="true">
         <classes>
-            <class name="com.company.app.testcases.SignUpPageTest">
+            <class name="com.company.app.testcases.ContactPageTests">
                 <methods>
                     <include name="verifyRequiredFormElements" />
                     <include name="verifyAssignedInslyAddress" />
