@@ -35,10 +35,10 @@ public class CommonWebElements extends TestBase {
     @FindBy(xpath ="//span[contains(text(),'Career') and @class='elementor-button-text']")
     WebElement careerLinkFooter;
 
-    @FindBy(xpath ="//span[contains(text(),'Career') and @class='elementor-button-text']")
+    @FindBy(xpath ="//span[contains(text(),'IT Development') and @class='elementor-button-text']")
     WebElement itDevCenterLinkFooter;
 
-    @FindBy(xpath ="//span[contains(text(),'Career') and @class='elementor-button-text']")
+    @FindBy(xpath ="//span[contains(text(),'Contact Us') and @class='elementor-button-text']")
     WebElement contactLinkFooter;
 
     @FindBy(xpath="//img[@title='eu-project-ee' and @alt='eu-project-ee']")
