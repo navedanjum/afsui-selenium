@@ -83,7 +83,7 @@ public class ContactPageTests extends TestBase {
         Assert.assertEquals(expectedGeneralPhone, contactPage.getGeneralPhone());
         Assert.assertEquals(expectedHrPhone, contactPage.getHrPhone());
     }
-    
+
 
     @AfterMethod
     public void tearDown(){
