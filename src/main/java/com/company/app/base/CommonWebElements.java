@@ -98,4 +98,9 @@ public class CommonWebElements extends TestBase {
         wait.until(ExpectedConditions.visibilityOf(euProjectImage));
         return euProjectImage.isDisplayed();
     }
+
+    public String getPageUrl(){
+        logger.info(driver.getCurrentUrl());
+        return driver.getCurrentUrl();
+    }
 }

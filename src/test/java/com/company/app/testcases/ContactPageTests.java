@@ -1,7 +1,7 @@
 package com.company.app.testcases;
 
-import com.company.app.base.CommonWebElements;
 import com.company.app.base.TestBase;
+import com.company.app.pages.CareerPage;
 import com.company.app.pages.ContactPage;
 import com.company.app.pages.HomePage;
 import com.company.app.util.TestUtil;
@@ -50,6 +50,7 @@ public class ContactPageTests extends TestBase {
         Assert.assertTrue(contactPage.isEuProjectImagePresent());
     }
 
+
     @Test(priority=3)
     public void verifyJoinArvatoSectionContentTest(){
         String expectedString = "Join Arvato.\nCheck out our open positions";
@@ -86,6 +87,17 @@ public class ContactPageTests extends TestBase {
         Assert.assertEquals(expectedHrPhone, contactPage.getHrPhone());
     }
 
+    //Test clicking button navigates to career page
+    @Test(priority=7)
+    public void validateNavigationUsingGoToCareerButtonTest(){
+        Assert.assertTrue(contactPage.IsGoTocareerPageBtnDisplayed());
+        CareerPage careerPage = contactPage.clickNavigateToCareer();
+        String actualUrl = careerPage.getPageUrl();
+        String expectedUrl = "https://itarvato.ee/career/";
+        Assert.assertEquals(expectedUrl,actualUrl);
+
+    }
+
     //Data-driven testing - positive test with valid data
     @DataProvider(name = "TestData1", indices = {0,1})
     public Object[][] getTestData1(){
@@ -102,19 +114,19 @@ public class ContactPageTests extends TestBase {
     }
 
 
-    @Test(priority=7)
+    @Test(priority=8)
     public void verifyContactUsLabelTest(){
         Assert.assertTrue(contactPage.isContactUsLabelDisplayed());
     }
 
-    @Test(priority=8, dataProvider="TestData1")
+    @Test(priority=9, dataProvider="TestData1")
     public void validateContactFormSubmissionSuccessTest(String name, String email, String phone, String message){
         contactPage.submitFormData(name, email, phone, message);
         String successMsg = "Thank you for your message. It has been sent.";
         Assert.assertEquals(successMsg, contactPage.getSubmissionResponseMsg());
     }
 
-    @Test(priority=9, dataProvider="TestData2")
+    @Test(priority=10, dataProvider="TestData2")
     public void validateContactFormSubmissionErrorTest(String name, String email, String phone, String message){
         contactPage.submitFormData(name, email, phone, message);
         String ErrorMsg = "One or more fields have an error. Please check and try again.";
@@ -122,7 +134,7 @@ public class ContactPageTests extends TestBase {
     }
 
     //mandatory field validation tests
-    @Test(priority=10)
+    @Test(priority=11)
     public void validateFormFieldValidatorMsgBlankTest(){
         String vMsg1 = "The field is required.";
         String vMsg2 = "The e-mail address entered is invalid.";
@@ -133,7 +145,7 @@ public class ContactPageTests extends TestBase {
     }
 
     //mandatory field validation tests
-    @Test(priority=11)
+    @Test(priority=12)
     public void validateFormFieldValidatorMsgInvalidDataTest(){
         String vMsg1 = "The field is required.";
         String vMsg2 = "The e-mail address entered is invalid.";

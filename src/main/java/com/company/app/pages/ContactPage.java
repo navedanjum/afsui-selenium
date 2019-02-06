@@ -131,9 +131,10 @@ public class ContactPage extends CommonWebElements {
         return navigateToCareerBtn.isDisplayed();
     }
 
-    public CareerPage navigateToCareer(){
+    public CareerPage clickNavigateToCareer(){
         wait.until(ExpectedConditions.elementToBeClickable(navigateToCareerBtn));
         navigateToCareerBtn.click();
+        wait.until(ExpectedConditions.urlContains("career"));
         return new CareerPage();
     }
 
