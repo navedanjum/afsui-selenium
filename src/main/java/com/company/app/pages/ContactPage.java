@@ -1,5 +1,6 @@
 package com.company.app.pages;
 
+import com.company.app.base.CommonWebElements;
 import com.company.app.base.TestBase;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * @author Ansari on 2/6/2019
  */
-public class ContactPage extends TestBase {
+public class ContactPage extends CommonWebElements {
 
     @FindBy(name = "contact-name")
     WebElement nameInput;
@@ -66,6 +67,8 @@ public class ContactPage extends TestBase {
 
         PageFactory.initElements(driver, this);
     }
+
+
 
 
 }

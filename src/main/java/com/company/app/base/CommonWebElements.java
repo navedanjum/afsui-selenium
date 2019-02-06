@@ -23,7 +23,7 @@ public class CommonWebElements extends TestBase {
     WebElement itDevCenterTab;
 
     @FindBy(xpath = "//a[contains(@href,'contact-us') and @class='menu-link']")
-    WebElement contactTab;
+    public WebElement contactTab;
 
     /*Footer Web elements*/
     @FindBy(xpath = "//i[contains(@class,'facebook')]")
