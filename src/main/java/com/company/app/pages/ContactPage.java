@@ -70,6 +70,12 @@ public class ContactPage extends CommonWebElements {
     @FindBy(css = ".wpcf7-response-output")
     WebElement formSubmissionResponseMsgArea;
 
+    @FindBy(xpath = "//input[@type='text']/following-sibling::span[@role='alert' and @class='wpcf7-not-valid-tip']")
+    WebElement nameInputValidatorMsg;
+
+    @FindBy(xpath = "//input[@type='email']/following-sibling::span[@role='alert' and @class='wpcf7-not-valid-tip']")
+    WebElement emailInputValidatorMsg;
+
 
     public ContactPage() {
 
@@ -150,6 +156,16 @@ public class ContactPage extends CommonWebElements {
     public String getSubmissionResponseMsg(){
         wait.until(ExpectedConditions.visibilityOf(formSubmissionResponseMsgArea));
         return formSubmissionResponseMsgArea.getText();
+    }
+
+    public String getEmailValidatorMsg(){
+        wait.until(ExpectedConditions.visibilityOf(emailInputValidatorMsg));
+        return emailInputValidatorMsg.getText();
+    }
+
+    public String getNameValidatorMsg(){
+        wait.until(ExpectedConditions.visibilityOf(nameInputValidatorMsg));
+        return nameInputValidatorMsg.getText();
     }
 
 }

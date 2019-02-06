@@ -32,7 +32,7 @@ public class ContactPageTests extends TestBase {
         contactPage = homePage.clickContactUsTab();
     }
 
-    //@Test(priority=1)
+    @Test(priority=1)
     public void verifyTopMenuTabsAndLogoTest(){
         Assert.assertTrue(contactPage.isApplicationLogoPresent());
         Assert.assertTrue(contactPage.isCareerTabPresent());
@@ -40,7 +40,7 @@ public class ContactPageTests extends TestBase {
         Assert.assertTrue(contactPage.isCareerTabPresent());
     }
 
-    //@Test(priority=2)
+    @Test(priority=2)
     public void verifyBottomMenuLinkAndSocialMediaTest(){
         Assert.assertTrue(contactPage.isCareerLinkFooterPresent());
         Assert.assertTrue(contactPage.isItDevCenterLinkFooterPresent());
@@ -50,7 +50,7 @@ public class ContactPageTests extends TestBase {
         Assert.assertTrue(contactPage.isEuProjectImagePresent());
     }
 
-    //@Test(priority=3)
+    @Test(priority=3)
     public void verifyJoinArvatoSectionContentTest(){
         String expectedString = "Join Arvato.\nCheck out our open positions";
         Assert.assertEquals(expectedString,contactPage.getTextContentFromJoinSection());
@@ -58,7 +58,7 @@ public class ContactPageTests extends TestBase {
     }
 
 
-    //@Test(priority=4)
+    @Test(priority=4)
     public void verifyLocationTest(){
         contactPage.switchToMapFrame();
         System.out.println(contactPage.getAddressTextFromGoogleMap());
@@ -68,7 +68,7 @@ public class ContactPageTests extends TestBase {
         Assert.assertEquals(expectedAddress, contactPage.getAddressText());
     }
 
-    //@Test(priority=5)
+    @Test(priority=5)
     public void verifyEmailTest(){
         String expectedGeneralEmail = "AFS_EE.Administration@arvato.com";
         String expectedHrEmail = "hr.itarvato@arvato.com";
@@ -77,7 +77,7 @@ public class ContactPageTests extends TestBase {
         Assert.assertEquals(expectedHrEmail, contactPage.getHrEmail());
     }
 
-    //@Test(priority=6)
+    @Test(priority=6)
     public void verifyPhoneNumberTest(){
         String expectedGeneralPhone = "+372 51 917 882";
         String expectedHrPhone = "+372 53 053 405";
@@ -87,23 +87,60 @@ public class ContactPageTests extends TestBase {
     }
 
     //Data-driven testing - positive test with valid data
-    @DataProvider(name = "contactTestData")
-    public Object[][] getContactsTestData(){
+    @DataProvider(name = "TestData1", indices = {0,1})
+    public Object[][] getTestData1(){
         Object data[][] = TestUtil.getTestData(sheetName);
         return data;
     }
 
 
-    //@Test(priority=7)
+    //Data-driven testing - negative test with invalid data
+    @DataProvider(name = "TestData2", indices = {2,3,4})
+    public Object[][] getTestData2(){
+        Object data[][] = TestUtil.getTestData(sheetName);
+        return data;
+    }
+
+
+    @Test(priority=7)
     public void verifyContactUsLabelTest(){
         Assert.assertTrue(contactPage.isContactUsLabelDisplayed());
     }
 
-    @Test(priority=10, dataProvider="contactTestData")
+    @Test(priority=8, dataProvider="TestData1")
     public void validateContactFormSubmissionSuccessTest(String name, String email, String phone, String message){
         contactPage.submitFormData(name, email, phone, message);
         String successMsg = "Thank you for your message. It has been sent.";
         Assert.assertEquals(successMsg, contactPage.getSubmissionResponseMsg());
+    }
+
+    @Test(priority=9, dataProvider="TestData2")
+    public void validateContactFormSubmissionErrorTest(String name, String email, String phone, String message){
+        contactPage.submitFormData(name, email, phone, message);
+        String ErrorMsg = "One or more fields have an error. Please check and try again.";
+        Assert.assertEquals(ErrorMsg, contactPage.getSubmissionResponseMsg());
+    }
+
+    //mandatory field validation tests
+    @Test(priority=10)
+    public void validateFormFieldValidatorMsgBlankTest(){
+        String vMsg1 = "The field is required.";
+        String vMsg2 = "The e-mail address entered is invalid.";
+
+        contactPage.submitFormData("","","","xyz");
+        Assert.assertEquals(vMsg1,contactPage.getEmailValidatorMsg());
+        Assert.assertEquals(vMsg1,contactPage.getNameValidatorMsg());
+    }
+
+    //mandatory field validation tests
+    @Test(priority=11)
+    public void validateFormFieldValidatorMsgInvalidDataTest(){
+        String vMsg1 = "The field is required.";
+        String vMsg2 = "The e-mail address entered is invalid.";
+
+        contactPage.submitFormData("","abc","1234","");
+        Assert.assertEquals(vMsg2,contactPage.getEmailValidatorMsg());
+        Assert.assertEquals(vMsg1,contactPage.getNameValidatorMsg());
     }
 
     @AfterMethod
