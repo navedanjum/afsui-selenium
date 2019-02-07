@@ -81,8 +81,9 @@ public class ITDevCenterPageTests extends TestBase {
             System.out.println(job);
             logger.info(job);
         }
-
     }
+
+
 
     @AfterMethod
     public void tearDown(){

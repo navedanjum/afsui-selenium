@@ -1,15 +1,20 @@
 package com.company.app.pages;
 
 import com.company.app.base.CommonWebElements;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author Ansari on 2/7/2019
  */
 public class CareerPage extends CommonWebElements {
+
+    List<String> jobs = new ArrayList<String>();
 
     @FindBy(css = "div.slide-subtitle.p")
     WebElement careerIntroSection;
@@ -38,6 +43,9 @@ public class CareerPage extends CommonWebElements {
     @FindBy(xpath = "//span[@class='job-name']")
     List<WebElement> jobList;
 
+    @FindBy(css = "h1.slide-title.p")
+    WebElement jobHeader;
+
     public String getCareerIntroSectionHeaderText() {
         return careerIntroSection.getText();
     }
@@ -62,4 +70,16 @@ public class CareerPage extends CommonWebElements {
         return contactSection.getText();
     }
 
+    public List<String> numberOfJobs(){
+        for(WebElement w: jobList){
+            jobs.add(w.getText());
+        }
+
+        return jobs;
+    }
+
+
+    public List<WebElement> getJobList() {
+        return jobList;
+    }
 }
