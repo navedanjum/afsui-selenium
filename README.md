@@ -59,7 +59,7 @@ Framework and Web test ran successfully through both IDE intelliJ IDEA and MVN c
 2. Take a look at index.html, Extent.html and emailable-report.html
 
 ## Contact information
-1. For queries contact author Navedanjum Ansari    
-                              navedanjum.ansari@gmail.com
-							  ansari@ut.ee/naansa@ttu.ee
-							  Personal website: xpressionworks.com
+1. For queries contact author Navedanjum Ansari      
+                              navedanjum.ansari@gmail.com   
+							  ansari@ut.ee/naansa@ttu.ee     
+							  Personal website: xpressionworks.com    
