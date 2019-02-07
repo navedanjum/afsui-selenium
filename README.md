@@ -2,7 +2,7 @@
 ## Description
 
 * Selenium Wedriver framework implemented using Java, Maven and TestNG. The framework implements the Page Object Pattern and data driven approach.
-* The framework is implemented in IDE IntelliJ Idea.
+* The framework is implemented in IDE IntelliJ Idea and Selenium jar version used is 3.14.0
 * Test data is read from the Excel workbook and configuration properties from the config.properties file.
 * The tests can be run in Firefox, Chrome and Microsoft Edge browser.
 * Learn about Page Object Pattern at https://github.com/SeleniumHQ/selenium/wiki/PageObjects   
