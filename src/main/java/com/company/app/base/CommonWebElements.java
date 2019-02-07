@@ -1,5 +1,9 @@
 package com.company.app.base;
 
+import com.company.app.pages.CareerPage;
+import com.company.app.pages.ContactPage;
+import com.company.app.pages.HomePage;
+import com.company.app.pages.ITDevCenterPage;
 import com.company.app.util.TestUtil;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,41 +18,86 @@ public class CommonWebElements extends TestBase {
     /* Mapping all elements that should exist on all the web pages*/
 
     @FindBy(xpath="//img[@class='custom-logo'][@alt='IT Arvato']")
-    WebElement applicationLogo;
+    public WebElement applicationLogo;
 
     @FindBy(xpath = "//a[contains(@href,'career') and @class='menu-link']")
-    WebElement careerTab;
+    public WebElement careerTab;
 
     @FindBy(xpath = "//a[contains(@href,'it-development-center') and @class='menu-link']")
-    WebElement itDevCenterTab;
+    public WebElement itDevCenterTab;
 
     @FindBy(xpath = "//a[contains(@href,'contact-us') and @class='menu-link']")
     public WebElement contactTab;
 
     /*Footer Web elements*/
     @FindBy(xpath = "//i[contains(@class,'facebook')]")
-    WebElement faceBookIcon;
+    public WebElement faceBookIcon;
 
     @FindBy(xpath = "//i[contains(@class,'linkedin')]")
-    WebElement linkedinIcon;
+    public WebElement linkedinIcon;
 
     @FindBy(xpath ="//span[contains(text(),'Career') and @class='elementor-button-text']")
-    WebElement careerLinkFooter;
+    public WebElement careerLinkFooter;
 
     @FindBy(xpath ="//span[contains(text(),'IT Development') and @class='elementor-button-text']")
-    WebElement itDevCenterLinkFooter;
+    public WebElement itDevCenterLinkFooter;
 
     @FindBy(xpath ="//span[contains(text(),'Contact Us') and @class='elementor-button-text']")
-    WebElement contactLinkFooter;
+    public WebElement contactLinkFooter;
 
     @FindBy(xpath="//img[@title='eu-project-ee' and @alt='eu-project-ee']")
-    WebElement euProjectImage;
+    public WebElement euProjectImage;
 
     public CommonWebElements() {
         PageFactory.initElements(driver, this);
         wait = new WebDriverWait(driver, TestUtil.EXPLICIT_WAIT);
     }
 
+    //Top menu navigation
+    public CareerPage clickCareerTab(){
+        careerTab.click();
+        return  new CareerPage();
+    }
+
+    public ITDevCenterPage clickITDevCenterTab(){
+        itDevCenterTab.click();
+        return new ITDevCenterPage();
+    }
+
+    public ContactPage clickContactUsTab(){
+        contactTab.click();
+        return new ContactPage();
+    }
+
+    //Bottom menu navigation
+    public CareerPage clickCareerLinkFooter(){
+        careerLinkFooter.click();
+        return  new CareerPage();
+    }
+
+    public ITDevCenterPage clickItDevCenterLinkFooter(){
+        itDevCenterLinkFooter.click();
+        return new ITDevCenterPage();
+    }
+
+    public ContactPage clickcontactLinkFooter(){
+        contactLinkFooter.click();
+        return new ContactPage();
+    }
+
+    //Footer social media icon click
+    public void clickFaceBookIconFooter(){
+        wait.until(ExpectedConditions.elementToBeClickable(faceBookIcon));
+        faceBookIcon.click();
+
+    }
+
+    public void clickLinkedinIconFooter(){
+        wait.until(ExpectedConditions.elementToBeClickable(linkedinIcon));
+        linkedinIcon.click();
+    }
+
+    //check if elements exist
     public boolean isApplicationLogoPresent(){
         wait.until(ExpectedConditions.visibilityOf(applicationLogo));
         return applicationLogo.isDisplayed();
@@ -102,5 +151,10 @@ public class CommonWebElements extends TestBase {
     public String getPageUrl(){
         logger.info(driver.getCurrentUrl());
         return driver.getCurrentUrl();
+    }
+
+    public void returnToHomePage(){
+        applicationLogo.click();
+        wait.until(ExpectedConditions.visibilityOf(applicationLogo));
     }
 }
