@@ -43,8 +43,8 @@ public class CareerPage extends CommonWebElements {
     @FindBy(xpath = "//span[@class='job-name']")
     List<WebElement> jobList;
 
-    @FindBy(css = "h1.slide-title.p")
-    WebElement jobHeader;
+/*    @FindBy(css = "h1.slide-title.p")
+    WebElement jobHeader;*/
 
     public String getCareerIntroSectionHeaderText() {
         return careerIntroSection.getText();
@@ -78,8 +78,20 @@ public class CareerPage extends CommonWebElements {
         return jobs;
     }
 
-
     public List<WebElement> getJobList() {
         return jobList;
     }
+
+    public ITDevCenterPage clickTeamPageBtn(){
+        wait.until(ExpectedConditions.elementToBeClickable(teamPageBtn));
+        teamPageBtn.click();
+        return new ITDevCenterPage();
+    }
+
+    public ContactPage clickDropUsBtn(){
+        wait.until(ExpectedConditions.elementToBeClickable(dropUsBtn));
+        dropUsBtn.click();
+        return new ContactPage();
+    }
+
 }

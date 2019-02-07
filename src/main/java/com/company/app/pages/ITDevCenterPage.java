@@ -47,6 +47,14 @@ public class ITDevCenterPage extends CommonWebElements {
     @FindBy(xpath = "//span[@class='job-name']")
     List<WebElement> jobList;
 
+    public boolean isIntroSectionHeaderDisplayed(){
+        return introSection.isDisplayed();
+    }
+
+    public boolean isTeamValuesSectionHeaderDisplayed(){
+        return teamValuesSection.isDisplayed();
+    }
+
     public String getTeamValuesSectionHeaderText() {
         return teamValuesSection.getText();
     }

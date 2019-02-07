@@ -3,7 +3,6 @@ package com.company.app.testcases;
 import com.company.app.base.TestBase;
 import com.company.app.pages.HomePage;
 import com.company.app.pages.ITDevCenterPage;
-import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -82,7 +81,6 @@ public class ITDevCenterPageTests extends TestBase {
             logger.info(job);
         }
     }
-
 
 
     @AfterMethod

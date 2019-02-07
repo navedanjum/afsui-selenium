@@ -2,8 +2,9 @@ package com.company.app.testcases;
 
 import com.company.app.base.TestBase;
 import com.company.app.pages.CareerPage;
+import com.company.app.pages.ContactPage;
 import com.company.app.pages.HomePage;
-import org.openqa.selenium.WebElement;
+import com.company.app.pages.ITDevCenterPage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -16,6 +17,9 @@ import java.util.List;
  * @author Ansari on 2/6/2019
  */
 public class CareerPageTests extends TestBase {
+
+    String contactUrl = "https://itarvato.ee/contact-us/";
+    String teamPageUrl = "https://itarvato.ee/it-development-centre/";
 
     HomePage homePage;
     CareerPage careerPage;
@@ -56,6 +60,27 @@ public class CareerPageTests extends TestBase {
     }
 
     @Test(priority=2)
+    public void verifyNavigationUsingDropUsButtonsTest(){
+        ContactPage contactPage = careerPage.clickDropUsBtn();
+        Assert.assertEquals(contactUrl, contactPage.getPageUrl());
+        //Validate the navigated page is the contact us page
+        Assert.assertTrue(contactPage.isContactUsLabelDisplayed());
+        Assert.assertTrue(contactPage.isEmailLabelDisplayed());
+        Assert.assertTrue(contactPage.isPhoneLabelDisplayed());
+        Assert.assertTrue(contactPage.isLocationLabelDisplayed());
+
+    }
+
+    @Test(priority=3)
+    public void verifyNavigationUsingTeamPageButtonsTest(){
+        ITDevCenterPage itDevCenterPage = careerPage.clickTeamPageBtn();
+        Assert.assertEquals(teamPageUrl, itDevCenterPage.getPageUrl());
+        //Validate the navigated page is the IT Dev center page.
+        Assert.assertTrue(itDevCenterPage.isIntroSectionHeaderDisplayed());
+        Assert.assertTrue(itDevCenterPage.isTeamValuesSectionHeaderDisplayed());
+    }
+
+    @Test(priority=4)
     public void verifyListedJobsTest(){
         List<String> retrievedJobs = careerPage.numberOfJobs();
         logger.info("Number of jobs listed: " + retrievedJobs.size());
@@ -67,7 +92,7 @@ public class CareerPageTests extends TestBase {
 
     }
 
-    @Test(priority=3)
+    @Test(priority=5)
     public void verifyNavigateToListedJobDescriptionTest() {
         int length = careerPage.getJobList().size();
         System.out.println(length);
