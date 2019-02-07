@@ -10,6 +10,8 @@ import org.testng.annotations.Test;
 /**
  * @author Ansari on 2/6/2019
  */
+
+@Test(testName="itarvato homepage tests")
 public class HomePageTests extends TestBase {
 
     HomePage homePage;

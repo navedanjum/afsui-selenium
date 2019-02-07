@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ContactsSanitySuite">
+    <listeners>
+        <listener class-name="com.company.app.extentreport.ExtentReporterNG"/>
+    </listeners>
+    <test name="AFSTestCases" preserve-order="true" group-by-instances="true">
+        <classes>
+            <class name="com.company.app.testcases.ContactPageTests">
+                <methods>
+                    <include name="verifyTopMenuTabsAndLogoTest" />
+                    <include name="verifyBottomMenuLinkAndSocialMediaTest" />
+                    <include name="verifyJoinArvatoSectionContentTest" />
+                    <include name="verifyLocationTest" />
+                    <include name="verifyEmailTest"/>
+                    <include name="verifyPhoneNumberTest"/>
+                    <include name="validateNavigationUsingGoToCareerButtonTest"/>
+                    <include name="verifyContactUsLabelTest"/>
+                    <include name="validateContactFormSubmissionSuccessTest"/>
+                    <include name="validateContactFormSubmissionErrorTest"/>
+                    <include name="validateFormFieldValidatorMsgBlankTest"/>
+                    <include name="validateFormFieldValidatorMsgInvalidDataTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

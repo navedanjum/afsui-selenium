@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="CareerSanitySuite">
+    <listeners>
+        <listener class-name="com.company.app.extentreport.ExtentReporterNG"/>
+    </listeners>
+    <test name="AFSTestCases" preserve-order="true" group-by-instances="true">
+        <classes>
+            <class name="com.company.app.testcases.CareerPageTests">
+                <methods>
+                    <include name="verifyCareerContentSectionTest" />
+                    <include name="verifyNavigationUsingDropUsButtonsTest" />
+                    <include name="verifyNavigationUsingTeamPageButtonsTest" />
+                    <include name="verifyListedJobsTest" />
+                    <include name="verifyNavigateToListedJobDescriptionTest" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

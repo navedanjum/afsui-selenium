@@ -14,6 +14,8 @@ import org.testng.annotations.Test;
 /**
  * @author Ansari on 2/6/2019
  */
+
+@Test(testName="itarvato contact page tests")
 public class ContactPageTests extends TestBase {
     HomePage homePage;
     ContactPage contactPage;

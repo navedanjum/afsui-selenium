@@ -16,6 +16,8 @@ import java.util.List;
 /**
  * @author Ansari on 2/6/2019
  */
+
+@Test(testName="itarvato IT career page tests")
 public class CareerPageTests extends TestBase {
 
     String contactUrl = "https://itarvato.ee/contact-us/";

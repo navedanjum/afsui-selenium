@@ -13,6 +13,8 @@ import java.util.List;
 /**
  * @author Ansari on 2/7/2019
  */
+
+@Test(testName="itarvato IT development center page tests")
 public class ITDevCenterPageTests extends TestBase {
 
     //expected navigations

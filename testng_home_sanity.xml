@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="HomeSanitySuite">
+    <listeners>
+        <listener class-name="com.company.app.extentreport.ExtentReporterNG"/>
+    </listeners>
+    <test name="AFSTestCases" preserve-order="true" group-by-instances="true">
+        <classes>
+            <class name="com.company.app.testcases.HomePageTests">
+                <methods>
+                    <include name="verifyTopMenuTabsAndLogoTest" />
+                    <include name="verifyNavigationUsingTopMenuTabsTest" />
+                    <include name="verifyBottomMenuLinkAndSocialMediaTest" />
+                    <include name="verifyNavigationUsingBottomMenuLinksTest" />
+                    <include name="verifyLinksAndButtonsOnHomePageTest"/>
+                    <include name="verifySiteNavigationUsingLinksAndButtonsTest"/>
+                    <include name="verifyNavigationUsingMoreAboutArvatoBtnTest"/>
+                    <include name="verifyNavigationUsingMoreAboutBertelsmannBtnTest"/>
+                    <include name="verifyNavigationUsingGoToSocialMediaBtnTest"/>
+                    <include name="verifyHomePageContentSectionTest"/>
+                    <include name="verifyNavigationUsingFooterLinkedinIconTest" />
+                    <include name="verifyNavigationUsingFooterFacebookIconTest" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
