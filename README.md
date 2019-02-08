@@ -37,10 +37,10 @@ Application Under Test is https://itarvato.ee/
 ## Steps to execute on windows command line using Maven
 1. Ensure all prerequisites are met and M2_HOME is set
 2. Go to project root folder using Windows command line
-3. mvn clean test -DtestngFile testng_1.xml
+3. mvn clean test -DtestngFile=testng_home_sanity.xml
 
 ### Run following commands as it is from git bash terminal
-1. git clone 
+1. git clone https://bitbucket.org/navedanjum/afsuitest.git
 2. echo $M2_HOME
 3. mvn clean test -DtestngFile=testng_home_sanity.xml    
 
