@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AllTestSuites">
+    <listeners>
+        <listener class-name="com.company.app.extentreport.ExtentReporterNG"/>
+    </listeners>
+    <suite-files>
+        <suite-file path="testng_home_sanity.xml"/>
+        <suite-file path="testng_career_sanity.xml"/>
+        <suite-file path="testng_devcenter_sanity.xml"/>
+        <suite-file path="testng_contact_sanity.xml"/>
+    </suite-files>
+</suite>

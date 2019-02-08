@@ -2,7 +2,7 @@
 ## Description
 
 * Selenium Wedriver framework implemented using Java, Maven and TestNG. The framework implements the Page Object Pattern and data driven approach.
-* The framework is implemented in IDE IntelliJ Idea and Selenium jar version used is 3.14.0
+* The framework is implemented in IDE IntelliJ Idea.
 * Test data is read from the Excel workbook and configuration properties from the config.properties file.
 * The tests can be run in Firefox, Chrome and Microsoft Edge browser.
 * Learn about Page Object Pattern at https://github.com/SeleniumHQ/selenium/wiki/PageObjects   
@@ -31,7 +31,7 @@ Application Under Test is https://itarvato.ee/
 7. If you want to change select the browser, change browser value in config.properties file src/main/java/com/company/app/config/config.properties
 
 ## Test Data
-1. Change the form test data required for the test in xls file located at  src/main/java/com/company/app/testdata/contactdata.xlsx
+1. Change the form test data required for the test in xls file located at  src/main/java/com/company/app/testdata/afsdata.xlsx
 2. Captured screen shot for test failure can be found in screen-shots directory which is created after running the test.
 
 ## Steps to execute on windows command line using Maven
@@ -42,7 +42,16 @@ Application Under Test is https://itarvato.ee/
 ### Run following commands as it is from git bash terminal
 1. git clone 
 2. echo $M2_HOME
-3. mvn clean test -DtestngFile=testng_1.xml   or mvn clean test -DtestngFile=testng_e2e.xml
+3. mvn clean test -DtestngFile=testng_home_sanity.xml    
+
+Note: To run the all four test suites use testng_all_suites.xml   
+       mvn clean test -DtestngFile=testng_all_suites.xml     
+       
+* There are four test suites which can be run individually. Below are the file names    
+      testng_home_sanity.xml    
+      testng_career_sanity.xml    
+      testng_contact_sanity.xml     
+      testng_devcenter_sanity.xml    
 
 ## Test Stability and Environment Details
 Framework and Web test ran successfully through both IDE intelliJ IDEA and MVN command line on below given System   
@@ -59,7 +68,7 @@ Framework and Web test ran successfully through both IDE intelliJ IDEA and MVN c
 2. Take a look at index.html, Extent.html and emailable-report.html
 
 ## Contact information
-1. For queries contact author Navedanjum Ansari      
-                              navedanjum.ansari@gmail.com   
-							  ansari@ut.ee/naansa@ttu.ee     
-							  Personal website: xpressionworks.com    
+1. For queries contact author Navedanjum Ansari    
+                              navedanjum.ansari@gmail.com
+							  ansari@ut.ee / naansa@ttu.ee     
+							  Personal website: xpressionworks.com
